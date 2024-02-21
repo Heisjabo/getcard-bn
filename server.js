@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 import mongoose from "mongoose";
 import userRoute from './routes/userRouter.js'
 import morgan from "morgan";
+import cors from "cors";
 dotenv.config();
 const app = express();
 const port = process.env.PORT || 5000;
@@ -10,6 +11,7 @@ const port = process.env.PORT || 5000;
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(morgan("dev"));
+app.use(cors());
 
 app.listen(port, console.log(`🚀 server started on port ${port}`));
 mongoose
